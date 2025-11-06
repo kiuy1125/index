@@ -1,0 +1,1071 @@
+跳至主要內容
+Google Classroom
+Classroom
+114資三孝專題實作
+首頁
+日曆
+報名的課程
+待辦事項
+1
+114資三孝專題實作
+1
+113資二孝_網頁設計丙級
+封存的課程
+設定
+寫一個五個學校、景點、美食(擇一或自訂)的介紹網頁，存成index.html檔案上傳寫一個五個學校、景點、美食(擇一或自訂)的介紹網頁，存成index.html檔案上傳
+寫一個五個學校、景點、美食(擇一或自訂)的介紹網頁，存成index.html檔案上傳
+黃信育
+•
+10月30日
+100 分
+課程留言
+你的作業
+已繳交
+index.html
+HTML
+
+私人留言
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣五大夜市 - 探索台灣最棒的夜市美食</title>
+    <meta name="description" content="探索台灣五大熱門夜市：士林、饒河、逢甲、六合、寧夏。發現最道地的台灣小吃、美食推薦、營業時間和旅遊資訊。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f1f1f;
+            background-color: #fafafa;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #dc2626;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #525252;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: #f5f5f5;
+            color: #1f1f1f;
+        }
+
+        .nav-links a.active {
+            background: #dc2626;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #dc2626;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: #737373;
+            max-width: 42rem;
+            margin: 0 auto 3rem;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: #737373;
+        }
+
+        /* Market Cards */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .market-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .market-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .market-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .market-card-content {
+            padding: 1.5rem;
+        }
+
+        .market-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .market-card-location {
+            color: #737373;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .market-card p {
+            color: #525252;
+            line-height: 1.6;
+        }
+
+        .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Food Cards */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .food-card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .food-card-content {
+            padding: 1rem;
+        }
+
+        .food-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .food-card h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .food-price {
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .food-card p {
+            color: #737373;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            color: #737373;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .info-card li:before {
+            content: "•";
+            color: #dc2626;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f5;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section.brand h3 {
+            color: #dc2626;
+        }
+
+        .footer-section p {
+            color: #737373;
+            font-size: 0.875rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #737373;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #dc2626;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e5e5e5;
+            padding-top: 2rem;
+            text-align: center;
+            color: #737373;
+            font-size: 0.875rem;
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .bg-card {
+            background: #f5f5f5;
+        }
+
+        /* Market Detail Hero */
+        .market-detail-hero {
+            position: relative;
+            height: 70vh;
+            min-height: 400px;
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            overflow: hidden;
+        }
+
+        .market-detail-hero .hero-content {
+            padding: 3rem 1.5rem;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .market-detail-hero .badge {
+            position: static;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .market-detail-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .market-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .market-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Card image container for badge */
+        .market-card-img-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home'); return false;">台灣夜市</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home'); return false;" id="nav-home">首頁</a></li>
+                <li><a href="#" onclick="showPage('shilin'); return false;" id="nav-shilin">士林夜市</a></li>
+                <li><a href="#" onclick="showPage('raohe'); return false;" id="nav-raohe">饒河夜市</a></li>
+                <li><a href="#" onclick="showPage('fengjia'); return false;" id="nav-fengjia">逢甲夜市</a></li>
+                <li><a href="#" onclick="showPage('liuhe'); return false;" id="nav-liuhe">六合夜市</a></li>
+                <li><a href="#" onclick="showPage('ningxia'); return false;" id="nav-ningxia">寧夏夜市</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600" alt="台灣夜市" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>台灣五大夜市</h1>
+                <p>體驗最道地的台灣夜市文化，品嚐令人難忘的街頭美食</p>
+                <a href="#markets" class="btn">探索五大夜市</a>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section>
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🍜</div>
+                        <h3>豐富美食</h3>
+                        <p>從傳統小吃到創新料理，每個夜市都有獨特的美食文化</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🕐</div>
+                        <h3>營業至深夜</h3>
+                        <p>多數夜市營業至凌晨，讓您盡情享受台灣的夜生活</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>在地體驗</h3>
+                        <p>感受台灣人的熱情，體驗最道地的夜市文化氛圍</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Markets -->
+        <section id="markets" class="bg-card">
+            <div class="container">
+                <h2 class="section-title">台灣五大夜市</h2>
+                <p class="section-subtitle">從台北到高雄，探索台灣最受歡迎的五大夜市，每個都有獨特的特色與美食</p>
+                
+                <div class="market-grid">
+                    <a href="#" onclick="showPage('shilin'); return false;" class="market-card">
+                        <div class="market-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600" alt="士林夜市" class="market-card-img">
+                            <span class="badge">豪大大雞排</span>
+                        </div>
+                        <div class="market-card-content">
+                            <h3>士林夜市</h3>
+                            <div class="market-card-location">📍 台北市士林區</div>
+                            <p>台灣最大、最著名的觀光夜市，美食種類豐富多樣，是來台必訪景點。</p>
+                        </div>
+                    </a>
+
+                    <a href="#" onclick="showPage('raohe'); return false;" class="market-card">
+                        <div class="market-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600" alt="饒河夜市" class="market-card-img">
+                            <span class="badge">胡椒餅</span>
+                        </div>
+                        <div class="market-card-content">
+                            <h3>饒河夜市</h3>
+                            <div class="market-card-location">📍 台北市松山區</div>
+                            <p>擁有傳統廟宇牌樓的特色夜市，狹長型街道兩旁小吃攤林立。</p>
+                        </div>
+                    </a>
+
+                    <a href="#" onclick="showPage('fengjia'); return false;" class="market-card">
+                        <div class="market-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600" alt="逢甲夜市" class="market-card-img">
+                            <span class="badge">官芝霖大腸包小腸</span>
+                        </div>
+                        <div class="market-card-content">
+                            <h3>逢甲夜市</h3>
+                            <div class="market-card-location">📍 台中市西屯區</div>
+                            <p>中台灣最大夜市，創新美食的發源地，深受年輕人喜愛。</p>
+                        </div>
+                    </a>
+
+                    <a href="#" onclick="showPage('liuhe'); return false;" class="market-card">
+                        <div class="market-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600" alt="六合夜市" class="market-card-img">
+                            <span class="badge">烤魷魚</span>
+                        </div>
+                        <div class="market-card-content">
+                            <h3>六合夜市</h3>
+                            <div class="market-card-location">📍 高雄市新興區</div>
+                            <p>南台灣最具代表性夜市，以海鮮小吃聞名，充滿南國風情。</p>
+                        </div>
+                    </a>
+
+                    <a href="#" onclick="showPage('ningxia'); return false;" class="market-card">
+                        <div class="market-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600" alt="寧夏夜市" class="market-card-img">
+                            <span class="badge">豬肝湯</span>
+                        </div>
+                        <div class="market-card-content">
+                            <h3>寧夏夜市</h3>
+                            <div class="market-card-location">📍 台北市大同區</div>
+                            <p>傳統道地的老字號夜市，保留最純粹的台灣小吃風味。</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Must-Try Foods -->
+        <section>
+            <div class="container">
+                <h2 class="section-title">必吃美食</h2>
+                <p class="section-subtitle">來台灣夜市絕對不能錯過的經典小吃，每一樣都是台灣美食文化的精華</p>
+                
+                <div class="food-grid">
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1626074353765-517a65aded2e?w=400" alt="臭豆腐" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>臭豆腐</h4>
+                                <span class="food-price">NT$ 50-70</span>
+                            </div>
+                            <p>外酥內嫩的發酵豆腐，搭配酸菜和特製醬料，是台灣最具特色的小吃</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400" alt="蚵仔煎" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>蚵仔煎</h4>
+                                <span class="food-price">NT$ 60-80</span>
+                            </div>
+                            <p>新鮮蚵仔搭配雞蛋和地瓜粉，淋上甜辣醬，Q彈美味</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=400" alt="豪大大雞排" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>豪大大雞排</h4>
+                                <span class="food-price">NT$ 70-90</span>
+                            </div>
+                            <p>比臉還大的酥脆炸雞排，外皮香脆、肉質鮮嫩多汁</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=400" alt="珍珠奶茶" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>珍珠奶茶</h4>
+                                <span class="food-price">NT$ 50-80</span>
+                            </div>
+                            <p>台灣招牌飲品，香濃奶茶搭配Q彈珍珠，風靡全球</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400" alt="大腸包小腸" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>大腸包小腸</h4>
+                                <span class="food-price">NT$ 50-70</span>
+                            </div>
+                            <p>糯米腸包裹香腸，加上酸菜、花生粉等配料，口感豐富</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1600555379765-f82335a2499b?w=400" alt="蔥油餅" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>蔥油餅</h4>
+                                <span class="food-price">NT$ 30-50</span>
+                            </div>
+                            <p>層層酥脆的餅皮，充滿蔥香，可加蛋增添風味</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Shilin Night Market Page -->
+    <div id="shilin" class="page">
+        <section class="market-detail-hero">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600" alt="士林夜市" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">豪大大雞排</span>
+                <h1>士林夜市</h1>
+                <div class="market-info">
+                    <div class="market-info-item">📍 台北市士林區大東路、大南路周邊</div>
+                    <div class="market-info-item">🕐 16:00 - 01:00</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container" style="max-width: 56rem;">
+                <h2 class="section-title" style="text-align: left;">關於士林夜市</h2>
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #525252;">
+                    士林夜市是台灣最大、最著名的夜市，位於台北市士林區。這裡不僅是觀光客的必訪景點，也是台北人最愛的美食天堂。夜市分為兩個主要區域：地下美食街和街邊攤販區，提供超過500個攤位的多樣選擇。從傳統台灣小吃到國際美食，從服飾雜貨到娛樂遊戲，應有盡有。
+                </p>
+            </div>
+        </section>
+
+        <section class="bg-card">
+            <div class="container">
+                <h2 class="section-title">必吃美食推薦</h2>
+                <div class="food-grid" style="max-width: 72rem; margin: 0 auto;">
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=400" alt="豪大大雞排" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>豪大大雞排</h4>
+                                <span class="food-price">NT$ 70-90</span>
+                            </div>
+                            <p>比臉還大的香脆炸雞排，士林夜市最具代表性的美食</p>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400" alt="蚵仔煎" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>蚵仔煎</h4>
+                                <span class="food-price">NT$ 60-80</span>
+                            </div>
+                            <p>新鮮蚵仔搭配雞蛋，Q彈美味的經典台灣小吃</p>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1626074353765-517a65aded2e?w=400" alt="臭豆腐" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>臭豆腐</h4>
+                                <span class="food-price">NT$ 50-70</span>
+                            </div>
+                            <p>外酥內嫩的臭豆腐，搭配酸菜與特製醬料</p>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=400" alt="珍珠奶茶" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>珍珠奶茶</h4>
+                                <span class="food-price">NT$ 50-80</span>
+                            </div>
+                            <p>台灣招牌飲品，香濃奶茶搭配Q彈珍珠</p>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1600555379765-f82335a2499b?w=400" alt="蔥油餅" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>蔥油餅</h4>
+                                <span class="food-price">NT$ 30-50</span>
+                            </div>
+                            <p>層層酥脆的蔥油餅，可加蛋更美味</p>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400" alt="大腸包小腸" class="food-card-img">
+                        <div class="food-card-content">
+                            <div class="food-card-header">
+                                <h4>大腸包小腸</h4>
+                                <span class="food-price">NT$ 50-70</span>
+                            </div>
+                            <p>糯米腸包香腸，口感豐富的創意小吃</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">遊玩資訊</h2>
+                <div class="info-grid" style="max-width: 72rem; margin: 0 auto;">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">🕐</div>
+                            <h3>營業時間</h3>
+                        </div>
+                        <ul>
+                            <li>平日：16:00 - 01:00</li>
+                            <li>假日：15:00 - 02:00</li>
+                            <li>全年無休</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">🚇</div>
+                            <h3>交通方式</h3>
+                        </div>
+                        <ul>
+                            <li>捷運劍潭站1號出口，步行約5分鐘</li>
+                            <li>捷運士林站1號出口，步行約10分鐘</li>
+                            <li>多條公車路線可達</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">💡</div>
+                            <h3>遊玩建議</h3>
+                        </div>
+                        <ul>
+                            <li>建議避開週末人潮高峰期（19:00-21:00）</li>
+                            <li>地下美食街冷氣開放，夏天較舒適</li>
+                            <li>攜帶現金較方便，部分攤位不收信用卡</li>
+                            <li>建議空腹前往，才能品嚐更多美食</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Similar sections for other markets (raohe, fengjia, liuhe, ningxia) would follow the same pattern -->
+    <!-- For brevity, I'll create simplified versions -->
+
+    <div id="raohe" class="page">
+        <section class="market-detail-hero">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600" alt="饒河夜市" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">胡椒餅</span>
+                <h1>饒河夜市</h1>
+                <div class="market-info">
+                    <div class="market-info-item">📍 台北市松山區饒河街</div>
+                    <div class="market-info-item">🕐 17:00 - 00:00</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container" style="max-width: 56rem;">
+                <h2 class="section-title" style="text-align: left;">關於饒河夜市</h2>
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #525252;">
+                    饒河街觀光夜市是台北市第二座成立的觀光夜市，全長約600公尺。夜市入口有座壯觀的傳統廟宇牌樓，為整條街道增添了濃厚的傳統氛圍。狹長型的街道兩旁攤販林立，從傳統小吃、服飾、遊戲到各式新奇商品應有盡有，是體驗台灣夜市文化的絕佳地點。
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div id="fengjia" class="page">
+        <section class="market-detail-hero">
+            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1600" alt="逢甲夜市" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">官芝霖大腸包小腸</span>
+                <h1>逢甲夜市</h1>
+                <div class="market-info">
+                    <div class="market-info-item">📍 台中市西屯區文華路、逢甲路周邊</div>
+                    <div class="market-info-item">🕐 17:00 - 02:00</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container" style="max-width: 56rem;">
+                <h2 class="section-title" style="text-align: left;">關於逢甲夜市</h2>
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #525252;">
+                    逢甲夜市是中台灣最大且最富盛名的夜市，以創新美食聞名全台。位於逢甲大學旁，深受年輕人喜愛。這裡是許多創意小吃的發源地，從起司馬鈴薯、章魚燒、黃金右腿到各式新奇飲品，總是引領台灣夜市美食的潮流。
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div id="liuhe" class="page">
+        <section class="market-detail-hero">
+            <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=1600" alt="六合夜市" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">烤魷魚</span>
+                <h1>六合夜市</h1>
+                <div class="market-info">
+                    <div class="market-info-item">📍 高雄市新興區六合二路</div>
+                    <div class="market-info-item">🕐 18:00 - 01:00</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container" style="max-width: 56rem;">
+                <h2 class="section-title" style="text-align: left;">關於六合夜市</h2>
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #525252;">
+                    六合夜市是高雄市最具代表性的觀光夜市，也是南台灣最著名的夜市之一。位於高雄市中心，交通便利。夜市以海鮮小吃聞名，充滿南國的熱情氛圍。每到傍晚時分，整條街便化身為美食天堂。
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div id="ningxia" class="page">
+        <section class="market-detail-hero">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1600" alt="寧夏夜市" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">豬肝湯</span>
+                <h1>寧夏夜市</h1>
+                <div class="market-info">
+                    <div class="market-info-item">📍 台北市大同區寧夏路</div>
+                    <div class="market-info-item">🕐 17:00 - 00:30</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container" style="max-width: 56rem;">
+                <h2 class="section-title" style="text-align: left;">關於寧夏夜市</h2>
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #525252;">
+                    寧夏夜市是台北市歷史悠久的傳統夜市，以道地的台灣小吃聞名。相較於其他大型觀光夜市，寧夏夜市保留了更多傳統風味，少了商業氣息，多了在地人情味。全長約300公尺的夜市，聚集了眾多老字號攤販。
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section brand">
+                    <h3>台灣夜市</h3>
+                    <p>探索台灣最道地的夜市文化，品嚐令人難忘的街頭美食</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>五大夜市</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('shilin'); return false;">士林夜市</a></li>
+                        <li><a href="#" onclick="showPage('raohe'); return false;">饒河夜市</a></li>
+                        <li><a href="#" onclick="showPage('fengjia'); return false;">逢甲夜市</a></li>
+                        <li><a href="#" onclick="showPage('liuhe'); return false;">六合夜市</a></li>
+                        <li><a href="#" onclick="showPage('ningxia'); return false;">寧夏夜市</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>熱門美食</h3>
+                    <ul>
+                        <li>臭豆腐</li>
+                        <li>蚵仔煎</li>
+                        <li>大雞排</li>
+                        <li>珍珠奶茶</li>
+                        <li>鹽酥雞</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>旅遊資訊</h3>
+                    <ul>
+                        <li>交通指南</li>
+                        <li>營業時間</li>
+                        <li>必吃推薦</li>
+                        <li>遊玩攻略</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 台灣夜市指南. 探索台灣美食文化</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+            
+            // Update nav active state
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Set home as active on load
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
+index.html
+目前顯示的是「index.html」。
